@@ -16,6 +16,7 @@ Route::get('/MyCourse', [MyCourseController::class, 'MyCourse'])->name('MyCourse
 
 Route::get('/Materials', [MaterialsController::class, 'Materials'])->name('Materials');
 
+
 Route::get('/login', function () {
     return view('auth/login-session');
 })->name('login');
@@ -27,3 +28,4 @@ Route::get('/login', [\App\Http\Controllers\SessionsController::class, 'create']
 Route::get('/profile', function () {
     return view('profile');
 });
+
