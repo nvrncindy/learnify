@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LandingPageController;
 
-Route::get('/Landing_Page', function () {
-   return view('Landing Page');
-});
+Route::get('/Landing_Page',[LandingPageController::class,'coursesList']);
