@@ -11,3 +11,7 @@ Route::get('/', function () {
 
 Route::get('/', [CourseController::class, 'index'])->name('home');
 Route::get('/courses', [CourseController::class, 'index'])->name('courses.index');
+
+Route::get('/MyCourse', [MyCourseController::class, 'MyCourse'])->name('MyCourse');
+
+Route::get('/Materials', [MaterialsController::class, 'Materials'])->name('Materials');
