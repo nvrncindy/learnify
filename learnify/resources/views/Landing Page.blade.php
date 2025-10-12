@@ -60,66 +60,16 @@
         <div class="d-flex align-items-center flex-column p-3">
             <h3>Courses</h1>
             <div class="row row-cols-1 row-cols-md-3 g-4 container p-3 d-flex">
+                @foreach ($courses as $courseName)
                 <div class="col">
                     <div class="card text-bg-dark">
                     <img src="https://www.dash-bootstrap-components.com/static/images/slide1.svg" class="card-img" alt="...">
                         <div class="card-img-overlay">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small>Last updated 3 mins ago</small></p>
+                            <h5 class="card-title">{{$courseName}}</h5>
                         </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="card text-bg-dark">
-                    <img src="https://www.dash-bootstrap-components.com/static/images/slide1.svg" class="card-img" alt="...">
-                        <div class="card-img-overlay">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small>Last updated 3 mins ago</small></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card text-bg-dark">
-                    <img src="https://www.dash-bootstrap-components.com/static/images/slide1.svg" class="card-img" alt="...">
-                        <div class="card-img-overlay">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small>Last updated 3 mins ago</small></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card text-bg-dark">
-                    <img src="https://www.dash-bootstrap-components.com/static/images/slide1.svg" class="card-img" alt="...">
-                        <div class="card-img-overlay">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small>Last updated 3 mins ago</small></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card text-bg-dark">
-                    <img src="https://www.dash-bootstrap-components.com/static/images/slide1.svg" class="card-img" alt="...">
-                        <div class="card-img-overlay">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small>Last updated 3 mins ago</small></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card text-bg-dark">
-                    <img src="https://www.dash-bootstrap-components.com/static/images/slide1.svg" class="card-img" alt="...">
-                        <div class="card-img-overlay">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small>Last updated 3 mins ago</small></p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </body>
