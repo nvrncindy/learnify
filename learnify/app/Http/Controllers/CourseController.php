@@ -8,7 +8,6 @@ class CourseController extends Controller
 {
     public function index(Request $request)
     {
-        // sample fallback data (keeps view working if no DB)
         $courses = collect([
             (object)[
                 'id' => 1,

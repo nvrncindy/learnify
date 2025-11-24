@@ -282,22 +282,22 @@
         </div>
 
         <div class="card">
-            <div class="card-header-gray">Informasi Akun</div>
+            <div class="card-header-gray">Account Information</div>
             <div class="card-body">
                 <form>
-                    <label for="namaLengkap">Nama Lengkap</label>
+                    <label for="FullName">Full Name</label>
                     <div class="mb-3">
-                        <input type="text" class="form-control" id="namaLengkap" value="User">
+                        <input type="text" class="form-control" id="FullName" value="User">
                     </div>
 
                     <label for="email">Email</label>
                     <div class="mb-3">
                         <input type="email" class="form-control" id="email" value="user@gmail.com">
-                        <a href="#" class="text-sm text-muted mt-2 d-block">Ganti Kata Sandi</a>
+                        <a href="#" class="text-sm text-muted mt-2 d-block">Change Password</a>
                     </div>
                     
                     <div class="text-center mt-4">
-                        <button type="submit" class="btn-primary">Simpan Perubahan</button>
+                        <button type="submit" class="btn-primary">Save</button>
                     </div>
                 </form>
             </div>
