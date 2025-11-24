@@ -8,6 +8,8 @@ class CourseController extends Controller
 {
     public function index(Request $request)
     {
+        $search = $request->input('search');
+
         $courses = collect([
             (object)[
                 'id' => 1,
@@ -35,6 +37,16 @@ class CourseController extends Controller
             ],
         ]);
 
-        return view('coursecatalog', ['courses' => $courses]);
+        if ($search) {
+            $courses = $courses->filter(function ($course) use ($search) {
+                return str_contains(strtolower($course->title), strtolower($search)) ||
+                       str_contains(strtolower($course->short_description), strtolower($search));
+            });
+        }
+
+        return view('coursecatalog', [
+            'courses' => $courses,
+            'search' => $search
+        ]);
     }
 }
