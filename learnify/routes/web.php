@@ -3,6 +3,9 @@
 use App\Http\Controllers\MyCourseController;
 use App\Http\Controllers\MaterialsController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LandingPageController;
+
+Route::get('/landing-page',[LandingPageController::class,'coursesList']);
 use App\Http\Controllers\CourseController;
 
 Route::get('/', function () {
