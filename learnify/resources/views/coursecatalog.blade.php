@@ -52,7 +52,7 @@
                     </div>
 
                     <div class="desc">
-                        {!! nl2br(e($course->full_description ?? $course->short_description ?? 'Course description not available.')) !!}
+                        {!! nl2br(e($course->description  ?? 'Course description not available.')) !!}
                     </div>
                 </div>
             </div>
