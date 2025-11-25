@@ -4,11 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Course Catalogue</title>
-
-
   <script src="https://cdn.tailwindcss.com"></script>
 
-  
 <body class="bg-white text-gray-700 antialiased">
     <div class="container max-w-full bg-gray-200 rounded-b px-6 py-4 mb-6 flex items-center justify-between">
         <h1>Learnify</h1>

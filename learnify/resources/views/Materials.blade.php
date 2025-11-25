@@ -4,44 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Course Catalogue</title>
-
-
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{{ asset('css/materials.css') }}">
 
-  <style>
-  
-    .course-desc {
-      white-space: normal !important;
-      overflow: visible !important;
-      text-overflow: clip !important;
-      max-height: none !important;
-      line-height: 1.6;
-    }
-
-    
-    .card-bg { background: rgba(0,0,0,0.04); }
-
-    .star { color: #f6c23e; }
-
-    .apply-btn {
-      background: linear-gradient(180deg,#22d3ee,#06b6d4);
-      box-shadow: 0 2px 6px rgba(6,182,212,0.12);
-    }
-
- 
-    .course-thumb {
-      width: 112px;  
-      height: 80px;   
-      object-fit: cover;
-      display: block;
-    }
-
-  
-    @media (max-width: 640px) {
-      .course-thumb { width: 96px; height: 72px; }
-      .card-grid { gap: 1rem; }
-    }
-  </style>
 </head>
 <body class="bg-white text-gray-700 antialiased">
     <div class="container max-w-full bg-gray-200 rounded-b px-6 py-4 mb-6 flex items-center justify-between">
