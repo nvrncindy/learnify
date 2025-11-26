@@ -20,9 +20,11 @@
             </select>
 
             <!-- Search dekat Login -->
-            <input type="text" class="form-control rounded-pill px-3" placeholder="Search..."
+            <form action="{{ route('courses.index')}}" method="GET" class="d-flex align-items-center gap-2">
+            <input name="search" type="text" class="form-control rounded-pill px-3" placeholder="Search..."
                 style="width: 250px;">
-
+            <button class="btn  rounded-pill px-4 fw-bold"> Search</button>
+            </form>
             <!-- Login -->
             <a href="/login" class="btn btn-outline-primary rounded-pill px-4 fw-bold">
                 Login
