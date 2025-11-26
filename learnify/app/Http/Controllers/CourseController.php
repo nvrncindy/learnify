@@ -16,7 +16,7 @@ class CourseController extends Controller
         if ($search) {
             $query->where('title', 'LIKE', "%{$search}%")
                  
-                  ->orWhere('short_description', 'LIKE', "%{$search}%");
+                  ->orWhere('description', 'LIKE', "%{$search}%");
         }
 
         $courses = $query->get();
