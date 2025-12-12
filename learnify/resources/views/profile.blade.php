@@ -97,14 +97,12 @@
         </div>
 
         <div class="text-center my-4">
-            {{-- Logout --}}
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
                 <button class="btn-danger">Log Out</button>
             </form>
         </div>
         <div class="text-center my-4">
-            {{-- Back to Home --}}
             <a href="{{ route('home') }}" class="btn-secondary">Back to Home</  a>
     </div>
 
