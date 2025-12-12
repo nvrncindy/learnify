@@ -4,22 +4,26 @@
 
 <link rel="stylesheet" href="{{ asset('css/coursecatalog.css') }}">
 
+<script src="https://cdn.tailwindcss.com"></script>
+
 <body class="bg-white text-gray-700 antialiased">
 
 <div class="min-h-screen p-6">
 
-    <!-- Header -->
     <header class="bg-gray-200 rounded-b px-6 py-4 mb-6 flex items-center justify-between">
         <h1 class="text-2xl font-medium text-center w-full">Course Catalogue</h1>
-        <div class="w-6 h-6 bg-white border rounded shadow-sm ml-auto"></div>
+
+        <a href="{{ route('courses.create') }}" class="bg-green-600 text-white px-4 py-2 rounded shadow hover:bg-green-700 text-sm font-bold whitespace-nowrap ml-4">
+            + New Course
+        </a>
+
+        <div class="w-6 h-6 bg-white border rounded shadow-sm ml-4"></div>
     </header>
 
-    <!-- Card List -->
     <div class="card-list">
 
         @forelse(($courses ?? []) as $course)
             <div class="course-card">
-                <!-- Thumbnail -->
                 <div class="thumb-wrapper">
                     <img
                         src="{{ asset($course->image ?? 'webdev.png') }}"
@@ -28,7 +32,6 @@
                         onerror="this.src='{{ asset('webdev.png') }}'">
                 </div>
 
-                <!-- Course Content -->
                 <div class="content">
 
                     <div class="top-row">
@@ -54,11 +57,29 @@
                     <div class="desc">
                         {!! nl2br(e($course->description  ?? 'Course description not available.')) !!}
                     </div>
+
+                    <div class="mt-4 pt-4 border-t border-gray-100 flex justify-between items-center">
+                        <span class="text-xs font-bold text-gray-400 uppercase">Admin</span>
+                        <div class="flex gap-2">
+                            <a href="{{ route('courses.edit', $course->id) }}" class="text-xs bg-yellow-100 text-yellow-700 px-3 py-1 rounded hover:bg-yellow-200 transition">
+                                Edit
+                            </a>
+
+                            <form action="{{ route('courses.destroy', $course->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this course?');" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="text-xs bg-red-100 text-red-700 px-3 py-1 rounded hover:bg-red-200 transition">
+                                    Delete
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
         @empty
-            <div class="text-center text-gray-500">No courses found.</div>
+            <div class="text-center text-gray-500 w-full py-10">No courses found.</div>
         @endforelse
 
     </div>
