@@ -31,7 +31,6 @@
                     <div class="mb-3">
                         <input type="email" class="form-control" id="email"
                                value="{{ Auth::user()->email }}">
-                        <a href="#" class="text-sm text-muted mt-2 d-block">Change Password</a>
                     </div>
                     
                     <div class="text-center mt-4">
@@ -57,10 +56,11 @@
                     </div>
                 </div>
 
-                <a href="#" class="list-group-item d-flex justify-content-between align-items-center">
+                <a href="{{ route('MyCourse') }}" class="list-group-item d-flex justify-content-between align-items-center">
                     My Courses
                     <span class="list-group-icon">></span>
                 </a>
+
                 <a href="#" class="list-group-item d-flex justify-content-between align-items-center">
                     My Certificates
                     <span class="list-group-icon">></span>
