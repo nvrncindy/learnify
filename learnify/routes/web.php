@@ -23,8 +23,7 @@ Route::post('/logout', [SessionsController::class, 'destroy'])->name('logout');
 
 Route::get('/register', [RegisterController::class, 'create'])->name('register');
 Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
-
-
+Route::resource('courses', App\Http\Controllers\CourseController::class);
 
 Route::get('/profile', function () {
     return view('profile');
