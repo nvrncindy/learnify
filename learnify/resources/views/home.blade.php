@@ -12,7 +12,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    {{ __('Anda berhasil masuk!') }}
+                    {{ __('You have logged in!') }}
                 </div>
             </div>
         </div>
