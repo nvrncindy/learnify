@@ -5,35 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Page</title>
     <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
+
 </head>
 <body>
-
     <div class="container">
         
         <div class="profile-header">
             <div class="profile-icon">👤</div>
-            <h1 class="profile-name">User</h1>
-            <p class="profile-email">user@gmail.com</p>
+            <h1 class="profile-name">{{ Auth::user()->name }}</h1>
+            <p class="profile-email">{{ Auth::user()->email }}</p>
         </div>
 
         <div class="card">
             <div class="card-header-gray">Account Information</div>
             <div class="card-body">
                 <form>
+
                     <label for="FullName">Full Name</label>
                     <div class="mb-3">
-                        <input type="text" class="form-control" id="FullName" value="User">
+                        <input type="text" class="form-control" id="FullName"
+                               value="{{ Auth::user()->name }}">
                     </div>
 
                     <label for="email">Email</label>
                     <div class="mb-3">
-                        <input type="email" class="form-control" id="email" value="user@gmail.com">
+                        <input type="email" class="form-control" id="email"
+                               value="{{ Auth::user()->email }}">
                         <a href="#" class="text-sm text-muted mt-2 d-block">Change Password</a>
                     </div>
                     
                     <div class="text-center mt-4">
                         <button type="submit" class="btn-primary">Save</button>
                     </div>
+
                 </form>
             </div>
         </div>
@@ -93,9 +97,15 @@
         </div>
 
         <div class="text-center my-4">
-            <button class="btn-danger">Log Out</button>
+            {{-- Logout --}}
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button class="btn-danger">Log Out</button>
+            </form>
         </div>
-
+        <div class="text-center my-4">
+            {{-- Back to Home --}}
+            <a href="{{ route('home') }}" class="btn-secondary">Back to Home</  a>
     </div>
 
 </body>

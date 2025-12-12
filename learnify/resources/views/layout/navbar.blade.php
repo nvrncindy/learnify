@@ -10,7 +10,6 @@
             <a href="/courses" class="nav-link fw-semibold">Courses</a>
         </div>
 
-
         <div class="d-flex align-items-center" style="gap: 12px; margin-left: auto;">
 
             <select class="form-select rounded-pill px-3" style="width: 150px;">
@@ -26,9 +25,18 @@
             <button class="btn  rounded-pill px-4 fw-bold"> Search</button>
             </form>
             <!-- Login -->
-            <a href="/login" class="btn btn-outline-primary rounded-pill px-4 fw-bold">
-                Login
-            </a>
+            @guest
+                <a href="/login" class="btn btn-outline-primary rounded-pill px-4 fw-bold">
+                    Login
+                </a>
+            @endguest
+
+            @auth
+                <a href="/profile" class="btn btn-primary rounded-pill px-4 fw-bold">
+                    {{ Auth::user()->name }}
+                </a>
+            @endauth
+
 
         </div>
 
