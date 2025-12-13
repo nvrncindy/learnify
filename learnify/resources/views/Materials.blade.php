@@ -1,13 +1,19 @@
 @extends('layout.app')
 
 @section('content')
+
 <div class="container py-5">
     <div class="row justify-content-center">
-        <div class="col-lg-8">
+        @if(session('success'))
+            <div class="alert alert-success text-center">{{ session('success') }}</div>
+        @endif
 
-            
+        @if(session('error'))
+            <div class="alert alert-danger text-center">{{ session('error') }}</div>
+        @endif
+        <div class="col-lg-8">
             <div class="text-center mb-4">
-                <h1 class="fw-bold">Lorem Ipsum</h1>
+                <h1 class="fw-bold">{{ $course->title }}</h1>
             </div>
 
             
@@ -86,8 +92,9 @@
             <div class="text-center">
                 <button type="submit" class="btn btn-primary btn-lg rounded-pill px-5">Submit</button>
             </div>
-
         </div>
     </div>
 </div>
+
 @endsection
+
