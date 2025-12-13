@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Course;
 
@@ -22,12 +23,11 @@ class CourseController extends Controller
         return view('coursecatalog', compact('courses', 'search'));
     }
 
-
     public function create()
     {
+
         return view('courses.create');
     }
-
 
     public function store(Request $request)
     {
@@ -44,7 +44,6 @@ class CourseController extends Controller
         return redirect('/courses')->with('success', 'Course created successfully!');
     }
 
-
     public function edit(Course $course)
     {
         return view('courses.edit', compact('course'));
@@ -54,7 +53,7 @@ class CourseController extends Controller
     {
         $attributes = $request->validate([
             'title'       => 'required',
-            'slug'        => 'required',
+            'slug'        => 'required|unique:courses,slug,' . $course->id,
             'price'       => 'required|numeric',
             'description' => 'required',
             'image'       => 'nullable',
@@ -71,16 +70,19 @@ class CourseController extends Controller
 
         return redirect('/courses')->with('success', 'Course deleted successfully!');
     }
+
     public function apply(Course $course)
     {
         $user = Auth::user();
 
-        //check udah apply atau belum
-        if ($user->courses()->where('course_id', $course->id)->exists()) {
+        if (!$user) {
+            return redirect()->route('login');
+        }
+
+        if ($user->courses->contains($course->id)) {
             return back()->with('error', 'You are already enrolled in this course.');
         }
 
-        // gabungin course dengan user
         $user->courses()->attach($course->id);
 
         return back()->with('success', 'You have successfully applied for this course.');
