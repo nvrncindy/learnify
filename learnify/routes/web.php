@@ -10,6 +10,8 @@ use App\Http\Controllers\SessionsController;
 
 Route::get('/', [CourseController::class, 'index'])->name('home');
 Route::get('/courses', [CourseController::class, 'index'])->name('courses.index');
+Route::post('/courses/{course}/apply', [CourseController::class, 'apply'])
+     ->name('courses.apply');
 Route::get('/landing-page',[LandingPageController::class,'coursesList'])->name('landing.page');
 
 
