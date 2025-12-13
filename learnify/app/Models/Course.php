@@ -9,5 +9,6 @@ class Course extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $primaryKey = 'course_id';
+    protected $fillable = ['title', 'slug', 'description', 'price', 'rating'];
 }
