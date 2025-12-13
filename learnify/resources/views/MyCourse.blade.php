@@ -2,56 +2,62 @@
 
 @section('content')
 
-<body class="bg-white text-gray-700 antialiased">
+<div class="container py-5">
+    <h1 class="mb-4 text-center">My Courses</h1>
 
-    <div class="flex items-center justify-center">
-        <div class="space-y-6 w-full max-w-3xl">
-            <h1 class="text-lg font-bold">My Courses</h1>
-            <ul class="space-y-4">
+    @if(session('success'))
+        <div class="alert alert-success text-center">{{ session('success') }}</div>
+    @endif
 
-                @forelse($courses as $course)
-                    <li>
-                        <div class="flex bg-gray-300 m-auto rounded-lg shadow items-center justify-between p-4">
+    @if(session('error'))
+        <div class="alert alert-danger text-center">{{ session('error') }}</div>
+    @endif
 
-                            <img class="rounded-xl w-[120px]"
-                                 src="{{ asset($course->image) }}"
-                                 alt="{{ $course->title }}"
-                                 onerror="this.src='{{ asset('webdev.png') }}'">
+    <div class="row g-4">
 
-                            <div class="flex-1 flex flex-col ml-4">
-                                <h1 class="text-lg font-bold">{{ $course->title }}</h1>
+        @forelse($courses as $course)
+            <div class="col-12">
+                <div class="card shadow-sm flex-row align-items-center p-3">
+                    
+                    {{-- Course image --}}
+                    <img src="{{ asset($course->image ?? 'webdev.png') }}"
+                         class="card-img-left rounded" 
+                         style="width: 120px; height: auto;"
+                         alt="{{ $course->title }}"
+                         onerror="this.src='{{ asset('webdev.png') }}'">
 
-                                {{-- Waktu user enroll --}}
-                                <p class="text-sm text-gray-700">
-                                    Enrolled: {{ $course->pivot->created_at->format('d M Y') }}
-                                </p>
+                    {{-- Course details --}}
+                    <div class="card-body flex-grow-1 ms-3">
+                        <h5 class="card-title">{{ $course->title }}</h5>
+                        <p class="card-text mb-1">
+                            <small class="text-muted">
+                                Enrolled: {{ $course->pivot->created_at->format('d M Y') }}
+                            </small>
+                        </p>
+                        <p class="card-text">
+                            <small class="text-muted">
+                                Updated: {{ $course->updated_at->diffForHumans() }}
+                            </small>
+                        </p>
+                    </div>
 
-                                {{-- Waktu course di-update --}}
-                                <p class="text-sm text-gray-700">
-                                    Updated: {{ $course->updated_at->diffForHumans() }}
-                                </p>
-                            </div>
+                    {{-- Continue button --}}
+                    <div class="ms-auto text-center">
+                        <a href="/materials" class="btn btn-primary">
+                            Continue
+                        </a>
+                    </div>
 
-                            <div class="flex-col text-center min-w-[120px]">
-                                <button type="button"
-                                        class="text-white bg-blue-700 hover:bg-blue-800 
-                                        focus:ring-4 focus:ring-blue-300 
-                                        font-medium rounded-full text-sm px-5 py-2.5">
-                                    Continue
-                                </button>
-                            </div>
+                </div>
+            </div>
+        @empty
+            <div class="col-12 text-center text-muted py-5">
+                You have not enrolled in any courses yet.
+            </div>
+        @endforelse
 
-                        </div>
-                    </li>
-                @empty
-                    <li class="text-center text-gray-500 py-4">
-                        You have not enrolled in any courses yet.
-                    </li>
-                @endforelse
-
-            </ul>
-        </div>
     </div>
+</div>
 
-</body>
 @endsection
+
