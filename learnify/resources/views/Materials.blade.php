@@ -17,15 +17,17 @@
             </div>
 
             
-            <div class="text-center mb-4">
+             <div class="text-center mb-4">
                 <div class="ratio ratio-16x9">
                     <iframe 
-                        src="https://www.youtube.com/embed/KtUwWzWqdAc" 
+                        src="{{ $course->links }}"
                         title="YouTube video" 
                         allowfullscreen>
                     </iframe>
                 </div>
             </div>
+
+        
 
         
             <div class="card mb-4 shadow-sm">
@@ -97,4 +99,5 @@
 </div>
 
 @endsection
+
 
