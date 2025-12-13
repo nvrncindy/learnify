@@ -31,12 +31,12 @@
                         <h5 class="card-title">{{ $course->title }}</h5>
                         <p class="card-text mb-1">
                             <small class="text-muted">
-                                Enrolled: {{ $course->pivot->created_at->format('d M Y') }}
+                                Enrolled: {{ optional($course->pivot?->created_at)->format('d M Y') ?? '-' }}
                             </small>
                         </p>
                         <p class="card-text">
                             <small class="text-muted">
-                                Updated: {{ $course->updated_at->diffForHumans() }}
+                                Updated: {{ optional($course->updated_at)->diffForHumans() ?? '-' }}
                             </small>
                         </p>
                     </div>
