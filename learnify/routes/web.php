@@ -16,7 +16,8 @@ Route::get('/landing-page',[LandingPageController::class,'coursesList'])->name('
 
 
 Route::get('/mycourse', [MyCourseController::class, 'MyCourse'])->name('MyCourse');
-Route::get('/materials', [MaterialsController::class, 'Materials'])->name('Materials');
+// Route::get('/materials', [MaterialsController::class, 'Materials'])->name('Materials');
+Route::get('/mycourse/{course}', [MaterialsController::class, 'details'])->name('mycourse.details');
 
 
 Route::get('/login', [SessionsController::class, 'create'])->name('login');
