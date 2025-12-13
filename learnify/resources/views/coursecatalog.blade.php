@@ -49,9 +49,12 @@
                         </div>
 
                         <div class="apply-wrapper">
-                            <a href="{{ url('/courses/'.$course->id.'/apply') }}" class="apply-btn">
-                                {{ __('messages.apply') }}
-                            </a>
+                            <form action="{{ route('courses.apply', $course->id) }}" method="POST">
+                                                        @csrf
+                                <button type="submit" class="apply-btn">
+                                    {{ __('messages.apply') }}
+                                </button>
+                            </form>
                         </div>
                     </div>
 
