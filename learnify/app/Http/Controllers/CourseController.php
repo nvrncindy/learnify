@@ -26,7 +26,7 @@ class CourseController extends Controller
     public function create()
     {
 
-        return view('courses.create');
+        return view('course.create');
     }
 
     public function store(Request $request)
@@ -46,7 +46,7 @@ class CourseController extends Controller
 
     public function edit(Course $course)
     {
-        return view('courses.edit', compact('course'));
+        return view('course.edit', compact('course'));
     }
 
     public function update(Request $request, Course $course)
