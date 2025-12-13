@@ -71,4 +71,18 @@ class CourseController extends Controller
 
         return redirect('/courses')->with('success', 'Course deleted successfully!');
     }
+    public function apply(Course $course)
+    {
+        $user = Auth::user();
+
+        //check udah apply atau belum
+        if ($user->courses()->where('course_id', $course->id)->exists()) {
+            return back()->with('error', 'You are already enrolled in this course.');
+        }
+
+        // gabungin course dengan user
+        $user->courses()->attach($course->id);
+
+        return back()->with('success', 'You have successfully applied for this course.');
+    }
 }
