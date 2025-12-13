@@ -43,9 +43,10 @@
 
 
                     <div class="ms-auto text-center">
-                        <a href="/materials" class="btn btn-primary">
-                            Continue
+                        <a href="{{ route('mycourse.details', $course) }}" class="apply-btn">
+                            {{ __('Continue') }}
                         </a>
+
                     </div>
 
                 </div>
@@ -60,4 +61,5 @@
 </div>
 
 @endsection
+
 
