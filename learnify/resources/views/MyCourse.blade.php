@@ -19,14 +19,14 @@
             <div class="col-12">
                 <div class="card shadow-sm flex-row align-items-center p-3">
                     
-                    {{-- Course image --}}
+
                     <img src="{{ asset($course->image ?? 'webdev.png') }}"
                          class="card-img-left rounded" 
                          style="width: 120px; height: auto;"
                          alt="{{ $course->title }}"
                          onerror="this.src='{{ asset('webdev.png') }}'">
 
-                    {{-- Course details --}}
+
                     <div class="card-body flex-grow-1 ms-3">
                         <h5 class="card-title">{{ $course->title }}</h5>
                         <p class="card-text mb-1">
@@ -41,7 +41,7 @@
                         </p>
                     </div>
 
-                    {{-- Continue button --}}
+
                     <div class="ms-auto text-center">
                         <a href="/materials" class="btn btn-primary">
                             Continue
