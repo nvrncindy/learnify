@@ -7,7 +7,8 @@
         <!-- Menu kiri -->
         <div class="d-none d-lg-flex align-items-center gap-4">
             <a href="/" class="nav-link fw-semibold">Home</a>
-            <a href="/courses" class="nav-link fw-semibold">Courses</a>
+            <a href="/courses" class="nav-link fw-semibold">Course Catalogue</a>
+            <a href="/mycourse" class="nav-link fw-semibold">My Course</a>
         </div>
 
         <div class="d-flex align-items-center" style="gap: 12px; margin-left: auto;">
