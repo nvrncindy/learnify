@@ -7,9 +7,10 @@ use Illuminate\Http\Request;
 
 class MyCourseController extends Controller
 {
-    public function MyCourse(){
-        $courses = Course::all();
+     public function MyCourse()
+    {
+        $courses = Auth::check() ? Auth::user()->courses : collect(); 
 
-        return view("MyCourse", compact('courses'));
+        return view('MyCourse', compact('courses'));
     }
 }
